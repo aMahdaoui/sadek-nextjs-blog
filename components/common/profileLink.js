@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import styles from '../layout.module.css';
+import styles from './styles/common.module.css';
 
 export default function ProfileLink({ children, href }) {
   return (

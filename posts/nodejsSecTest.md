@@ -2,6 +2,7 @@
 title: 'Approach for security testing node.js applications and integrating it into CI/CD pipeline'
 field: 'web security'
 date: '2023-03-16'
+tags: 'web security, nodejs, git, gitlab, ci-cd, devSecOps'
 ---
 
 ### What is Security Testing

@@ -1,0 +1,7 @@
+.output-result {
+  background-color: #f2f1f1 !important;
+}
+
+.output-result > * {
+  color: #1b1b1b !important;
+}
