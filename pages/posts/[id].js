@@ -6,6 +6,7 @@ import Layout from '../../components/layout';
 import Date from '../../components/common/date';
 
 import utilStyles from '../../styles/utils.module.css';
+import Tags from '../../components/common/tags';
 
 export default function Post({ postData }) {
   return (
@@ -18,6 +19,7 @@ export default function Post({ postData }) {
           <h1 className={utilStyles.headingXl}>{postData.title}</h1>
           <div className={utilStyles.lightText}>
             <Date dateString={postData.date} />
+            <Tags tags={postData.tags} />
           </div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

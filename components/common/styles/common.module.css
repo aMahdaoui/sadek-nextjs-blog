@@ -1,0 +1,16 @@
+.profileIcon {
+  color: rgba(156, 163, 175);
+}
+.profileIcon:hover {
+  color: rgb(43, 36, 36);
+}
+
+.tag {
+  /* background: rgb(246 211 211); */
+  border-radius: 0.25em;
+  padding: 0px 8px;
+  /* border: solid 1px #f3a4a4; */
+  border: solid 0.1em rgb(219 108 108);
+  margin: 0 2px;
+  padding-bottom: 1px;
+}
