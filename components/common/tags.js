@@ -11,6 +11,6 @@ export default function Tags({ tags }) {
     const tagsList = tagsArray.map((tag, index) => {
       return <Tag key={nanoid()} tagName={tag}></Tag>;
     });
-    return <div>{tagsList}</div>;
+    return <div className={styles.tagsContainer}>{tagsList}</div>;
   }
 }

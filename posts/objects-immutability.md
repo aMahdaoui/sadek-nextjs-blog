@@ -1,6 +1,6 @@
 ---
 # title: 'Objects and immutability, some Javascript methods which you may not aware of!'
-title: 'Objects and immutability, some usefull Javascript methods'
+title: 'Objects and immutability, some useful Javascript methods'
 date: '2023-05-30'
 field: 'javascript'
 tags: 'web dev, javascript, immutability, tips'
