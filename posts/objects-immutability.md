@@ -8,11 +8,9 @@ tags: 'web dev, javascript, immutability, tips'
 
 Javascript developers use lodash very often to deal with Objects (objects & arrays). The **\_.cloneDeep()** method, for example, can be used to create a deep copy of an object (i.e. it recursively clones the value). therefore the newly created object does not share the same reference as the cloned one. which is useful and time-saving.
 
-but, What if i tell you that there is a built-in javascript method that can achieve the same without using or importing any 3rd party library like lodash in your code 😀
+but, What if i tell you that there is a built-in javascript method that can achieve the same without using or importing any 3rd party library like lodash in your code. 😀
 
 Yes, this article will take you through some useful built-in javascript methods, supported by the majority of browsers.
-
-Alright, before going into the details let's start with a quick review on immutability concept in javascript and how it is tightly related to the
 
 Before going into the details, let's start with a quick review of the immutability concept in javascript. Since it is tightly related to these methods
 
@@ -52,7 +50,7 @@ users    : ['Jhon', 'Mickel', 'Kareem']
 newUsers : ['Jhon', 'Mickel', 'Kareem']
 ```
 
-As you might know, the value has been changed in both of the arrays. because when an existing array is assigned to a new variable, it does not create a new array with the same properties. Instead, it creates a reference to the original. Therefore they share the same value.
+As you might know, the value has been changed in both of the arrays. This is because when an existing array is assigned to a new variable, it does not create a new array with the same properties. Instead, it creates a reference to the original. Therefore they share the same value.
 
 This is not the expected behavior. You can see how this sort of reassignment could cause unintended results. hence this is why developers use the famous **\_.cloneDeep()** method to fix that, and change only the current Object they use without affecting the original one.
 
@@ -143,13 +141,13 @@ sorted newUsers : ['Jhon', 'Kareem', 'Sadek']
 
 Only newUsers has been sorted
 
-## 3. toReveresed method
+## 3. toReversed method
 
-The **toReveresed** method was introduced to reverse the elements in an array without mutating the original array.
+The **toReversed** method was introduced to reverse the elements in an array without mutating the original array.
 
 ```js[class='line-numbers']
 const users = ['Jhon', 'Sadek', 'Kareem'];
-const newUsers = users.toReveresed(); // reverse array elements
+const newUsers = users.toReversed(); // reverse array elements
 console.log("users :", users);
 console.log("sorted newUsers :', newUsers);
 ```
