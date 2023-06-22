@@ -3,6 +3,9 @@
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 }
+.container iframe {
+  width: 100%;
+}
 
 .header {
   display: flex;
@@ -39,4 +42,28 @@
 
 .backToHome {
   margin: 3rem 0 0;
+}
+
+.navbar {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+.navbarContainer {
+  max-width: 50rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+  /* padding: 10px 16px; */
+  /* background: #555; */
+  /* color: #f1f1f1; */
+}
+
+/* .content {
+  padding: 16px;
+} */
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }

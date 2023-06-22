@@ -2,8 +2,8 @@
 # title: 'Objects and immutability, some Javascript methods which you may not aware of!'
 title: 'Objects and immutability, some useful Javascript methods'
 date: '2023-05-30'
-field: 'javascript'
-tags: 'web dev, javascript, immutability, tips'
+field: 'web developement'
+tags: 'javascript, immutability, tips'
 ---
 
 Javascript developers use lodash very often to deal with Objects (objects & arrays). The **\_.cloneDeep()** method, for example, can be used to create a deep copy of an object (i.e. it recursively clones the value). therefore the newly created object does not share the same reference as the cloned one. which is useful and time-saving.
@@ -21,7 +21,7 @@ Basically, immutability means "you cannot change something". a **const** variabl
 However, mutating (changing) array and object's data structure in javascript is possible 🙃 :
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Mickel', 'Kareem'];
+const users = ['John', 'Mickel', 'Kareem'];
 users[1] = 'Sadek';
 console.log('users :', users);
 ```
@@ -29,7 +29,7 @@ console.log('users :', users);
 Output 🤔 :
 
 ```markup[class='output-result']
-users : ['Jhon', 'Sadek', 'Kareem'];
+users : ['John', 'Sadek', 'Kareem'];
 ```
 
 Now, let’s try to create a _newUsers_ array from the _users_ and assign back **Mickel** to the second position:
@@ -46,8 +46,8 @@ So, what would be the value of the arrays !, let's see:
 Output :
 
 ```markup[class='output-result']
-users    : ['Jhon', 'Mickel', 'Kareem']
-newUsers : ['Jhon', 'Mickel', 'Kareem']
+users    : ['John', 'Mickel', 'Kareem']
+newUsers : ['John', 'Mickel', 'Kareem']
 ```
 
 As you might know, the value has been changed in both of the arrays. This is because when an existing array is assigned to a new variable, it does not create a new array with the same properties. Instead, it creates a reference to the original. Therefore they share the same value.
@@ -57,7 +57,7 @@ This is not the expected behavior. You can see how this sort of reassignment cou
 However, **\_.cloneDeep()** is used for some complicated cases where the object is nested or deeply nested. So, [Array.from](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) or [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax) is the best option to clone our array and fix that behavior :
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Sadek', 'Kareem'];
+const users = ['John', 'Sadek', 'Kareem'];
 const newUsers = [...users];
 newUsers[1] = 'Mickel';
 console.log('users    :', users);
@@ -67,8 +67,8 @@ console.log('newUsers :', newUsers);
 Output :
 
 ```markup[class='output-result']
-users    : ['Jhon', 'Sadek', 'Kareem']
-newUsers : ['Jhon', 'Mickel', 'Kareem']
+users    : ['John', 'Sadek', 'Kareem']
+newUsers : ['John', 'Mickel', 'Kareem']
 ```
 
 Here, _newUsers_ array does not share the same reference with the original array _users_, then changing one of them does not affect the other one.
@@ -91,7 +91,7 @@ array.with(index, value)
 Trying that with the above example :
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Sadek', 'Kareem'];
+const users = ['John', 'Sadek', 'Kareem'];
 const newUsers = users.with(1, Mickel);
 console.log('users    :', users);
 console.log('newUsers :', newUsers);
@@ -100,8 +100,8 @@ console.log('newUsers :', newUsers);
 Output :
 
 ```markup[class='output-result']
-users    : ['Jhon', 'Sadek', 'Kareem']
-newUsers : ['Jhon', 'Mickel', 'Kareem']
+users    : ['John', 'Sadek', 'Kareem']
+newUsers : ['John', 'Mickel', 'Kareem']
 ```
 
 ## 2. toSorted method
@@ -109,7 +109,7 @@ newUsers : ['Jhon', 'Mickel', 'Kareem']
 Effortlessly, **sort** method can be used to sort an array. However, if it is created from another array, the original and the new array will be sorted (immutability story), let's check:
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Sadek', 'Kareem'];
+const users = ['John', 'Sadek', 'Kareem'];
 const newUsers = users;
 newUsers.sort(); // sort newUsers alphabetically
 console.log("users           :", users);
@@ -119,14 +119,14 @@ console.log("sorted newUsers :', newUsers);
 Output
 
 ```markup[class='output-result']
-users           : ['Jhon', 'Kareem', 'Sadek']
-sorted newUsers : ['Jhon', 'Kareem', 'Sadek']
+users           : ['John', 'Kareem', 'Sadek']
+sorted newUsers : ['John', 'Kareem', 'Sadek']
 ```
 
 In order to fix that unintended behavior, **toSorted** method had been introduced :
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Sadek', 'Kareem'];
+const users = ['John', 'Sadek', 'Kareem'];
 const newUsers = users.toSorted(); // sort ONLY newUsers alphabetically
 console.log("users :", users);
 console.log("sorted newUsers :', newUsers);
@@ -135,8 +135,8 @@ console.log("sorted newUsers :', newUsers);
 Output
 
 ```markup[class='output-result']
-users           : ['Jhon', 'Sadek', 'Kareem']
-sorted newUsers : ['Jhon', 'Kareem', 'Sadek']
+users           : ['John', 'Sadek', 'Kareem']
+sorted newUsers : ['John', 'Kareem', 'Sadek']
 ```
 
 Only newUsers has been sorted
@@ -146,7 +146,7 @@ Only newUsers has been sorted
 The **toReversed** method was introduced to reverse the elements in an array without mutating the original array.
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Sadek', 'Kareem'];
+const users = ['John', 'Sadek', 'Kareem'];
 const newUsers = users.toReversed(); // reverse array elements
 console.log("users :", users);
 console.log("sorted newUsers :', newUsers);
@@ -155,8 +155,8 @@ console.log("sorted newUsers :', newUsers);
 Output
 
 ```markup[class='output-result']
-users : ['Jhon', 'Sadek', 'Kareem']
-sorted newUsers : ['Kareem','Sadek','Jhon']
+users : ['John', 'Sadek', 'Kareem']
+sorted newUsers : ['Kareem','Sadek','John']
 ```
 
 Only newUsers has been reversed
@@ -166,7 +166,7 @@ Only newUsers has been reversed
 The **toSpliced** method can be used to change the content of an array, by adding, removing, or replacing existing elements. without mutating the original array.
 
 ```js[class='line-numbers']
-const users = ['Jhon', 'Sadek', 'Kareem'];
+const users = ['John', 'Sadek', 'Kareem'];
 
 // Inserting an element at index 1
 const newUsers1 = users.toSpliced(1, 0, 'Adam');
@@ -186,10 +186,10 @@ console.log('newUsers3 :', newUsers3);
 Output
 
 ```markup[class='output-result']
-users     : ['Jhon', 'Sadek', 'Kareem']
-newUsers1 : ['Jhon', 'Adam', 'Sadek', 'Kareem']
+users     : ['John', 'Sadek', 'Kareem']
+newUsers1 : ['John', 'Adam', 'Sadek', 'Kareem']
 newUsers2 : ['Kareem']
-newUsers3 : ['Jhon','Sadek', 'Amine','Salah']
+newUsers3 : ['John','Sadek', 'Amine','Salah']
 ```
 
 The original array _users_ was not modified.
