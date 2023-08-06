@@ -7,16 +7,37 @@ export const META_DATA = {
 
 export const PROFILE_DATA = {
   name: 'Mahdaoui Sadek',
-  job: 'Frontend engineer',
+  welcome: "Hi 👋, I'm Sadek !",
+  nickname: 'Sadek',
+  job: 'Software engineer',
   title: 'Mahdaoui Abdessadeq portfolio',
-  profileDesciption: `Hello and welcome 👋. I am Sadek frontend engineer. \n
-    i work mainly with JavaScript, typescript, and react ecosystem. \n
-    I share here some tips and insights about web developement`,
+  shortDescription: `Currently, I am working as full stack developer (front-end focus). \n
+    I am passionate about building engaging web applications, and digital problems solving.`,
+  // ' based in Casablanca, Morocco. Working towards creating software that makes life easier and more meaningful.',
+  // profileDesciption: `Hello and welcome 👋. I am Sadek frontend engineer. \n
+  //   i work mainly with JavaScript, typescript, and react ecosystem. \n
+  //   I share here some tips and insights about web developement`,
   linkedIn: 'https://www.linkedin.com/in/amahdaoui/',
   github: 'https://github.com/aMahdaoui/',
   gmail: 'abdu.mahdaoui@gmail.com',
   medium: 'https://medium.com/@sadek_mahdo',
 };
+
+export const PROFILE_SKILLS = [
+  { skill: 'HTML' },
+  { skill: 'CSS' },
+  { skill: 'JavaScript' },
+  { skill: 'TypeScript' },
+  { skill: 'React' },
+  { skill: 'Next.js' },
+  { skill: 'Node' },
+  { skill: 'Python' },
+  { skill: 'Material design' },
+  { skill: 'Tailwind CSS' },
+  { skill: 'Git' },
+  { skill: 'Critical-thinking' },
+  { skill: 'Problem-solving' },
+];
 
 // to deliver exceptional customer experiences. Adept at contributing to a highly
 // collaborative work environment, finding solutions, and determining

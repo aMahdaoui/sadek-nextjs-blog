@@ -1,8 +1,11 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import styles from './styles/common.module.css';
 
-const Tag = ({ tagName }) => <span className={styles.tag}>{tagName}</span>;
+const Tag = ({ tagName }) => (
+  <span className="border border-sky-500  rounded-lg  m-0.5 px-2 pb-0.25">
+    {tagName}
+  </span>
+);
 
 export default function Tags({ tags }) {
   if (!tags) return <></>;
@@ -11,6 +14,6 @@ export default function Tags({ tags }) {
     const tagsList = tagsArray.map((tag, index) => {
       return <Tag key={nanoid()} tagName={tag}></Tag>;
     });
-    return <div className={styles.tagsContainer}>{tagsList}</div>;
+    return <div className="flex flex-wrap">{tagsList}</div>;
   }
 }

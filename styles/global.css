@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;
@@ -6,29 +9,4 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-img ~ em {
-  color: rgb(117 117 117);
-  font-size: 13px;
-  text-align: center;
-  display: inherit;
 }

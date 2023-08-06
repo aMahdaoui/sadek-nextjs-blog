@@ -1,8 +1,10 @@
 import Head from 'next/head';
 
 import Layout from '../components/layout';
-import Blog from '../components/blog';
+import About from '../components/about';
+import Profile from '../components/profile';
 import Projects from '../components/projects';
+import Blog from '../components/blog';
 
 import { getSortedPostsData } from '../lib/posts';
 import { getAllProjects } from '../lib/projects';
@@ -14,6 +16,8 @@ export default function Home({ postsData, projectsData }) {
       <Head>
         <title>{PROFILE_DATA.title}</title>
       </Head>
+      <Profile />
+      <About />
       <Blog postsData={postsData} />
       <Projects projectsData={projectsData} />
     </Layout>

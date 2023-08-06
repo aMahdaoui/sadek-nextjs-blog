@@ -1,12 +1,9 @@
 import Head from 'next/head';
-import Link from 'next/link';
-
-import { getAllPostIds, getPostData } from '../../lib/posts';
 import Layout from '../../components/layout';
 import Date from '../../components/common/date';
-
-import utilStyles from '../../styles/utils.module.css';
 import Tags from '../../components/common/tags';
+
+import { getAllPostIds, getPostData } from '../../lib/posts';
 
 export default function Post({ postData }) {
   return (
@@ -14,10 +11,12 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article>
-        <div className={utilStyles.headingWrapper}>
-          <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-          <div className={utilStyles.lightText}>
+      <article className="mx-auto my-24 max-w-3xl prose  dark:prose-invert">
+        <div className="border-b-2 pb-2">
+          <h1 className=" dark:text-green-600 text-4xl my-4 font-bold">
+            {postData.title}
+          </h1>
+          <div className="font-light">
             <Date dateString={postData.date} />
             <Tags tags={postData.tags} />
           </div>
