@@ -1,23 +1,27 @@
 import Link from 'next/link';
 
-import Profile from './profile';
 import HeadMetaData from './headMetaData';
 
 import { META_DATA } from '../config/global';
 
-import styles from './layout.module.css';
+import StickyHeader from './stickyHeader';
+import Footer from './footer';
 
 export default function Layout({ children, home }) {
   return (
-    <div className={styles.container}>
+    <div>
       <HeadMetaData metaData={META_DATA} />
-      <Profile home={home} />
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )}
+      <StickyHeader home={home} />
+      max-width: 65rem; padding: 0 1rem; margin: 3rem auto 0rem;
+      <main className="max-w-5xl px-5 mt-12 mb-0 mx-auto">
+        {children}
+        {!home && (
+          <div className="mt-12">
+            <Link href="/">← Back to home</Link>
+          </div>
+        )}
+      </main>
+      <Footer />
     </div>
   );
 }

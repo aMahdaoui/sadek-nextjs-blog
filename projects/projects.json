@@ -3,7 +3,12 @@
         {
             "title": "React-mui-filter — Node Js Module",
             "description": "A react component facilitates filtering data, based on the filter the user picks.",
-            "link": "https://www.npmjs.com/package/react-mui-filter"
+            "image": "/images/projects/filterField.png",
+            "links": {
+                "npm": "https://www.npmjs.com/package/react-mui-filter",
+                "github": "https://github.com/aMahdaoui/FilterField",
+                "demo": ""
+            }
         }
     ]
 }
