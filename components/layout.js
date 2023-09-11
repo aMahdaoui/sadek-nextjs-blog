@@ -12,7 +12,6 @@ export default function Layout({ children, home }) {
     <div>
       <HeadMetaData metaData={META_DATA} />
       <StickyHeader home={home} />
-      max-width: 65rem; padding: 0 1rem; margin: 3rem auto 0rem;
       <main className="max-w-5xl px-5 mt-12 mb-0 mx-auto">
         {children}
         {!home && (

@@ -31,8 +31,12 @@ export default function StickyHeader({ home }) {
   // const pathname = usePathname();
   const [navbar, setNavbar] = useState(false);
   return (
-    <header className="w-full mx-auto px-4 sm:px-20 fixed z-10 top-0 shadow bg-teal-400  dark:bg-blue-500">
-      <div className="justify-between md:items-center md:flex dark:bg-green">
+    <header
+      className={`w-full mx-auto px-4 fixed z-10 top-0 shadow ${
+        currentTheme === 'dark' ? 'bg-[#0f1729]' : 'bg-white'
+      } `}
+    >
+      <div className="max-w-5xl mx-auto justify-between md:items-center md:flex ">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <NavBarLink path="home" home={home}>
@@ -71,7 +75,7 @@ export default function StickyHeader({ home }) {
                     key={idx}
                     path={`${item.page}`}
                     className={
-                      'cursor-pointer block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100'
+                      'cursor-pointer block lg:inline-block  hover:text-[#9bade1]'
                     }
                     activeClass="active"
                     spy={true}
