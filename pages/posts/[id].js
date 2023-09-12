@@ -11,11 +11,9 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article className="mx-auto my-24 max-w-3xl prose  dark:prose-invert">
+      <article className="mx-auto my-24 max-w-3xl">
         <div className="border-b-2 pb-2">
-          <h1 className=" dark:text-green-600 text-4xl my-4 font-bold">
-            {postData.title}
-          </h1>
+          <h1 className="text-4xl my-4 font-bold">{postData.title}</h1>
           <div className="font-light">
             <Date dateString={postData.date} />
             <Tags tags={postData.tags} />

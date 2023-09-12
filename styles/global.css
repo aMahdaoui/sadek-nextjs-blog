@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.dark body {
+  background: #0f1729;
+}
 html,
 body {
   padding: 0;
