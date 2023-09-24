@@ -31,11 +31,7 @@ export default function StickyHeader({ home }) {
   // const pathname = usePathname();
   const [navbar, setNavbar] = useState(false);
   return (
-    <header
-      className={`w-full mx-auto px-4 fixed z-10 top-0 shadow ${
-        currentTheme === 'dark' ? 'bg-[#0f1729]' : 'bg-white'
-      } `}
-    >
+    <header className="w-full mx-auto px-4 fixed z-10 top-0 shadow bg-white dark:bg-[#0f1729]">
       <div className="max-w-5xl mx-auto justify-between md:items-center md:flex ">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">

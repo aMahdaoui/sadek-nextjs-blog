@@ -19,11 +19,11 @@ export default function Blog({ postsData }) {
                     className="cursor-pointer text-2xl font-semibold mt-6 md:my-0 md:text-3xl"
                     href={`/posts/${id}`}
                   >
-                    <h2 className="dark:text-green-900 text-2xl font-semibold mt-6 md:my-0 md:text-3xl">
+                    <h2 className="dark:text-teal-200 text-2xl font-semibold mt-6 md:my-0 md:text-3xl">
                       {title}
                     </h2>
                   </Link>
-                  <small className="dark:text-green mb-2.5 block">
+                  <small className="dark:text-teal-600 mb-2.5 block">
                     <Date dateString={date} />
                   </small>
                   {/* <p className="max-h-12">short resume (max 240 char )...</p> */}
