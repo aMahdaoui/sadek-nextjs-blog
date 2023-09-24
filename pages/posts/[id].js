@@ -11,7 +11,7 @@ export default function Post({ postData }) {
       <Head>
         <title>{postData.title}</title>
       </Head>
-      <article className="mx-auto my-24 max-w-3xl">
+      <article className="mx-auto my-24 max-w-3xl prose dark:prose-invert">
         <div className="border-b-2 pb-2">
           <h1 className="text-4xl my-4 font-bold">{postData.title}</h1>
           <div className="font-light">
