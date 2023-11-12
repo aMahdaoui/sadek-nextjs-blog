@@ -2,14 +2,16 @@ import Link from 'next/link';
 import Date from './common/date';
 import SlideUp from './common/SlideUp';
 
+import { useSectionInView } from '../hooks/useSectionInView';
+import SectionHeading from './common/sectionHeading';
+
 export default function Blog({ postsData }) {
+  const { ref } = useSectionInView('Articles');
+
   return (
-    <section id="blog">
-      <div className="my-12 pb-12">
-        <h1 className="my-10 text-center font-bold text-4xl">
-          Blog
-          <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded"></hr>
-        </h1>
+    <section id="blog" ref={ref} className="scroll-mt-[6rem]">
+      <SectionHeading heading="Blog" />
+      <div className="my-12 pb-12 px-12">
         <div>
           {postsData.map(({ id, date, title, field }) => (
             <div className="" key={id}>
@@ -26,7 +28,6 @@ export default function Blog({ postsData }) {
                   <small className="dark:text-teal-600 mb-2.5 block">
                     <Date dateString={date} />
                   </small>
-                  {/* <p className="max-h-12">short resume (max 240 char )...</p> */}
                   <div>
                     <span className="bg-teal-200 text-teal-950 rounded-2xl py-0.5 px-4 mt-3 w-fit">
                       {field}

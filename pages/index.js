@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 import Layout from '../components/layout';
 import About from '../components/about';
+import Skills from '../components/skills';
 import Profile from '../components/profile';
 import Projects from '../components/projects';
 import Blog from '../components/blog';
@@ -18,6 +19,7 @@ export default function Home({ postsData, projectsData }) {
       </Head>
       <Profile />
       <About />
+      <Skills />
       <Blog postsData={postsData} />
       <Projects projectsData={projectsData} />
     </Layout>

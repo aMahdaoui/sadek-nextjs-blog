@@ -7,11 +7,11 @@ export const META_DATA = {
 
 export const PROFILE_DATA = {
   name: 'Mahdaoui Sadek',
-  welcome: "Hi 👋, I'm Sadek !",
+  welcome: "Hello, I'm Sadek !",
   nickname: 'Sadek',
   job: 'Software engineer',
   title: 'Mahdaoui Abdessadeq portfolio',
-  shortDescription: `Currently, I am working as full stack developer (front-end focus). \n
+  shortDescription: `I am a full stack developer (front-end focus). \n
     I am passionate about building engaging web applications, and digital problems solving.`,
   // ' based in Casablanca, Morocco. Working towards creating software that makes life easier and more meaningful.',
   // profileDesciption: `Hello and welcome 👋. I am Sadek frontend engineer. \n
@@ -30,10 +30,20 @@ export const PROFILE_SKILLS = [
   { skill: 'TypeScript' },
   { skill: 'React' },
   { skill: 'Next.js' },
-  { skill: 'Node' },
-  { skill: 'Python' },
+  { skill: 'Redux' },
+  { skill: 'Mobx' },
   { skill: 'Material design' },
-  { skill: 'Tailwind CSS' },
+  { skill: 'Tailwind' },
+  { skill: 'Node.js' },
+  { skill: 'Express' },
+  { skill: 'Python' },
+  { skill: 'Django' },
+  { skill: 'MongoDB' },
+  { skill: 'PostgreSQL' },
+  { skill: 'Prisma' },
+  { skill: 'GraphQL' },
+  { skill: 'Apollo' },
+  { skill: 'Framer Motion' },
   { skill: 'Git' },
   { skill: 'Critical-thinking' },
   { skill: 'Problem-solving' },

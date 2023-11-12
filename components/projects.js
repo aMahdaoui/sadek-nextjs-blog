@@ -1,25 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-// import { , BsArrowUpRightSquare } from "react-icons/bs"
 import { ImNpm, ImGithub, ImArrowUpRight2 } from 'react-icons/im';
+
 import SlideUp from './common/SlideUp';
+import { useSectionInView } from '../hooks/useSectionInView';
+import SectionHeading from './common/sectionHeading';
 
 const Projects = ({ projectsData }) => {
-  return (
-    <section id="projects">
-      <div className="my-12">
-        <h1 className="my-10 text-center font-bold text-4xl">
-          Projects
-          <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded"></hr>
-        </h1>
+  const { ref } = useSectionInView('Projects');
 
+  return (
+    <section id="projects" ref={ref} className="scroll-mt-[6rem]">
+      <SectionHeading heading="Projects" />
+      <div className="my-12">
         <div className="flex flex-col space-y-28">
           {projectsData.map((project, idx) => {
             return (
               <div key={idx}>
                 <SlideUp offset="-300px 0px -300px 0px">
-                  <div className="flex flex-col  animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12">
+                  <div className="flex flex-col  animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12 p-6 bg-gray-100 dark:bg-gray-400 border border-black/5 rounded-lg">
                     <div className=" md:w-1/2">
                       {/* <Link href={project.links.demo || project.links.github}> */}
                       <Image
@@ -31,14 +31,12 @@ const Projects = ({ projectsData }) => {
                       />
                       {/* </Link> */}
                     </div>
-                    <div className="mt-8 md:w-1/2">
-                      <h1 className="text-4xl font-bold mb-6">
-                        {project.name}
-                      </h1>
+                    <div className="md:w-1/2">
+                      <h3 className="text-4xl mb-2">{project.title}</h3>
                       <p className="text-xl leading-7 mb-4 text-teal-900 dark:text-teal-200">
                         {project.description}
                       </p>
-                      <div className="flex flex-row align-bottom space-x-4">
+                      <div className="flex space-x-4">
                         {project.links.npm && (
                           <Link href={project.links.npm || '#'} target="_blank">
                             <ImNpm
