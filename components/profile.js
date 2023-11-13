@@ -1,11 +1,11 @@
-import Image from 'next/image';
 import React from 'react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
-import { BsLinkedin } from 'react-icons/bs';
+import { motion } from 'framer-motion';
+
 import { HiArrowDown, HiDownload } from 'react-icons/hi';
-import { AiOutlineMedium } from 'react-icons/ai';
-import { FaGithubSquare } from 'react-icons/fa';
+
+import SocialMediaLinks from './common/socialMediaLinks';
 
 import { PROFILE_DATA } from '../config/global';
 import { useSectionInView } from '../hooks/useSectionInView';
@@ -17,7 +17,7 @@ export default function Profile() {
     <section
       ref={ref}
       id="home"
-      className="flex flex-col justify-evenly b-28scroll-mt-[100rem] text-center md:h-[100vh]  md:mt-0 mt-40 sm:mb-0  h-[calc(100vh-10rem)]"
+      className="flex flex-col justify-around  scroll-mt-[100rem] min-h-[calc(100vh-3rem)] text-center  pt-16 "
     >
       <div className="flex flex-col items-center justify-center">
         <div className="relative">
@@ -95,7 +95,7 @@ const BouncedRow = () => (
 );
 
 const ProfileLinks = () => (
-  <>
+  <div className="flex flex-wrap justify-center gap-2">
     <a
       className="group bg-white text-[#0f1729] py-1 px-5 mr-1 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack"
       href="/CV.pdf"
@@ -104,30 +104,6 @@ const ProfileLinks = () => (
       Download CV{' '}
       <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
     </a>
-    <a
-      href={PROFILE_DATA.medium}
-      rel="noreferrer"
-      target="_blank"
-      className="bg-white p-2 text-[#0f1729] flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-    >
-      <AiOutlineMedium />
-    </a>
-    <a
-      className="bg-white  p-2 text-[#0f1729] hover:text-gray-950 flex items-center gap-2 rounded-full focus:scale-[1.15] hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack"
-      href={PROFILE_DATA.linkedIn}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <BsLinkedin />
-    </a>
-
-    <a
-      className="bg-white p-2 text-[#0f1729] flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
-      href={PROFILE_DATA.github}
-      target="_blank"
-      rel="noreferrer"
-    >
-      <FaGithubSquare />
-    </a>
-  </>
+    <SocialMediaLinks classes="flex gap-1" />
+  </div>
 );

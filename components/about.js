@@ -6,7 +6,7 @@ const About = () => {
   const { ref } = useSectionInView('About');
 
   return (
-    <section id="about" ref={ref} className="scroll-mt-[6rem]">
+    <section id="about" ref={ref} className="scroll-mt-[6rem] mt-12">
       <SectionHeading heading="About Me" />
       <div className="my-12 px-12 pb-12 text-center">
         <p>
