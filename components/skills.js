@@ -19,7 +19,7 @@ const fadeInAnimationVariants = {
 };
 
 function Skills() {
-  const { ref } = useSectionInView('Skills', 1);
+  const { ref } = useSectionInView('Skills');
 
   return (
     <section id="skills" ref={ref} className="scroll-mt-[6rem]">
