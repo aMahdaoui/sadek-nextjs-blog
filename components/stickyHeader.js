@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Link as ScrollLink } from 'react-scroll/modules';
+import { motion } from 'framer-motion';
 
 import { RiMoonFill, RiSunLine } from 'react-icons/ri';
-import { IoMdMenu, IoMdClose } from 'react-icons/io';
+import { clsx } from 'clsx';
+import { useActiveSectionContext } from '../context/activeSectionContext';
 
 const NAV_ITEMS = [
   {
@@ -17,6 +17,10 @@ const NAV_ITEMS = [
     page: 'about',
   },
   {
+    label: 'Skills',
+    page: 'skills',
+  },
+  {
     label: 'Articles',
     page: 'blog',
   },
@@ -24,85 +28,75 @@ const NAV_ITEMS = [
     label: 'Projects',
     page: 'projects',
   },
+  // {
+  //   label: 'Contact',
+  //   page: 'contact',
+  // },
 ];
 export default function StickyHeader({ home }) {
   const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === 'system' ? systemTheme : theme;
-  // const pathname = usePathname();
-  const [navbar, setNavbar] = useState(false);
+  const { activeSection: selectedItem, setActiveSection: setSelectedItem } =
+    useActiveSectionContext();
   return (
-    <header className="w-full mx-auto px-4 fixed z-10 top-0 shadow bg-white dark:bg-[#0f1729]">
-      <div className="max-w-5xl mx-auto justify-between md:items-center md:flex ">
-        <div>
-          <div className="flex items-center justify-between py-3 md:py-5 md:block">
-            <NavBarLink path="home" home={home}>
-              <div className="container flex items-center space-x-2">
-                <Image
-                  priority
-                  src="/logo1.png"
-                  width={90}
-                  height={60}
-                  alt=""
-                />
-              </div>
-            </NavBarLink>
-            <div className="md:hidden">
-              <button
-                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
-                onClick={() => setNavbar(!navbar)}
-              >
-                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div>
-          <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-              navbar ? 'block' : 'hidden'
-            }`}
-          >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {NAV_ITEMS.map((item, idx) => {
-                return (
-                  <NavBarLink
-                    home={home}
-                    key={idx}
-                    path={`${item.page}`}
-                    className={
-                      'cursor-pointer block lg:inline-block  hover:text-[#9bade1]'
+    <header className="flex justify-center ">
+      <motion.div // sm:w-[36rem] !w-fit
+        className="flex z-50 px-7 justify-between items-center fixed top-0  h-[5.5rem]  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem]  sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
+        <div className={`flex-1 justify-self-center pb-0 mt-0 block }`}>
+          <div className="flex items-center justify-center space-x-6 sm:flex-nowrap flex-wrap">
+            {NAV_ITEMS.map((item, idx) => {
+              return (
+                <NavBarLink
+                  home={home}
+                  key={idx}
+                  path={item.page}
+                  className={clsx(
+                    'cursor-pointer block lg:inline-block rounded-full px-2 bg-blue-200  ',
+                    {
+                      'bg-transparent hover:text-[#9bade1]':
+                        selectedItem !== item.label,
                     }
-                    activeClass="active"
-                    spy={true}
-                    smooth={true}
-                    offset={-100}
-                    duration={500}
-                    onClick={() => setNavbar(!navbar)}
+                  )}
+                  activeClass="active"
+                  onClick={() => {
+                    setSelectedItem(item.label);
+                  }}
+                >
+                  <motion.li
+                    className=" list-none"
+                    key={item.page}
+                    initial={{ y: -100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
                   >
                     {item.label}
-                  </NavBarLink>
-                );
-              })}
-              {currentTheme === 'dark' ? (
-                <button
-                  onClick={() => setTheme('light')}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="black" />
-                </button>
-              ) : (
-                <button
-                  onClick={() => setTheme('dark')}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} />
-                </button>
-              )}
-            </div>
+                    {item.label === selectedItem && (
+                      <motion.span
+                        className="rounded-full w-min bg-blue-950 absolute inset-0 z-10"
+                        layoutId="selectedItem"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{
+                          duration: 0.3,
+                          ease: [0, 0.71, 0.2, 1.01],
+                          scale: {
+                            type: 'spring',
+                            damping: 5,
+                            stiffness: 100,
+                            restDelta: 0.001,
+                          },
+                        }}
+                      ></motion.span>
+                    )}
+                  </motion.li>
+                </NavBarLink>
+              );
+            })}
+            <ChangeThemeButton theme={theme} setTheme={setTheme} />
           </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 }
@@ -110,14 +104,36 @@ export default function StickyHeader({ home }) {
 function NavBarLink({ children, home, path, ...rest }) {
   if (home) {
     return (
-      <ScrollLink to={path} {...rest}>
+      <Link href={`/#${path}`} {...rest} scroll={false}>
         {children}
-      </ScrollLink>
+      </Link>
     );
   }
   return (
     <Link href={`/#${path}`} {...rest}>
       {children}
     </Link>
+  );
+}
+
+function ChangeThemeButton({ theme, setTheme }) {
+  return (
+    <>
+      {theme === 'dark' ? (
+        <button
+          onClick={() => setTheme('light')}
+          className="bg-slate-100 p-2 rounded-xl"
+        >
+          <RiSunLine size={20} color="black" />
+        </button>
+      ) : (
+        <button
+          onClick={() => setTheme('dark')}
+          className="bg-[#0f1729] text-slate-100 p-2 rounded-xl"
+        >
+          <RiMoonFill size={20} />
+        </button>
+      )}
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import {
   AiOutlineGithub,
   AiOutlineMedium,
@@ -13,6 +14,14 @@ const Footer = () => {
       <hr className="w-full h-0.5 mx-auto mt-8 bg-neutral-200 border-0"></hr>
       <div className="mx-auto  p-4 flex flex-col text-center text-neutral-900 md:flex-row md:justify-between">
         <div className="flex flex-row items-center justify-center space-x-1 text-neutral-500 dark:text-neutral-100">
+          <Image
+            priority
+            src="/logo1.png"
+            width={90}
+            height={60}
+            alt=""
+            className="rounded-sm mr-1"
+          />
           {`© ${new Date().getFullYear()} ${PROFILE_DATA.name}`}
           <a href="/" className="hover:underline"></a>
         </div>

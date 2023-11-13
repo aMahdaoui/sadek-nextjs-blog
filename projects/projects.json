@@ -1,8 +1,8 @@
 {
     "projects": [
         {
-            "title": "React-mui-filter — Node Js Module",
-            "description": "A react component facilitates filtering data, based on the filter the user picks.",
+            "title": "React-mui-filter",
+            "description": "A react NPM package facilitates filtering data, based on the filter the user picks.",
             "image": "/images/projects/filterField.png",
             "links": {
                 "npm": "https://www.npmjs.com/package/react-mui-filter",
