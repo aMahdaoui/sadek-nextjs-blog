@@ -45,7 +45,7 @@ export default function StickyHeader({ home }) {
         animate={{ y: 0, opacity: 1 }}
       >
         <div className={`flex-1 justify-self-center pb-0 mt-0 block }`}>
-          <div className="flex items-center justify-center space-x-6 sm:flex-nowrap flex-wrap">
+          <ul className="flex items-center justify-center space-x-6 sm:flex-nowrap flex-wrap">
             {NAV_ITEMS.map((item, idx) => {
               return (
                 <NavBarLink
@@ -53,10 +53,11 @@ export default function StickyHeader({ home }) {
                   key={idx}
                   path={item.page}
                   className={clsx(
-                    'cursor-pointer block lg:inline-block rounded-full px-2 bg-blue-200  ',
+                    'cursor-pointer block lg:inline-block rounded-full px-2 bg-blue-200 dark:bg-slate-100 ',
                     {
-                      'bg-transparent hover:text-[#9bade1]':
+                      'bg-transparent dark:bg-transparent  hover:text-[#9bade1]':
                         selectedItem !== item.label,
+                      'text-[#0f1729]': selectedItem === item.label,
                     }
                   )}
                   activeClass="active"
@@ -64,37 +65,12 @@ export default function StickyHeader({ home }) {
                     setSelectedItem(item.label);
                   }}
                 >
-                  <motion.li
-                    className=" list-none"
-                    key={item.page}
-                    initial={{ y: -100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                  >
-                    {item.label}
-                    {item.label === selectedItem && (
-                      <motion.span
-                        className="rounded-full w-min bg-blue-950 absolute inset-0 z-10"
-                        layoutId="selectedItem"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                          duration: 0.3,
-                          ease: [0, 0.71, 0.2, 1.01],
-                          scale: {
-                            type: 'spring',
-                            damping: 5,
-                            stiffness: 100,
-                            restDelta: 0.001,
-                          },
-                        }}
-                      ></motion.span>
-                    )}
-                  </motion.li>
+                  {item.label}
                 </NavBarLink>
               );
             })}
             <ChangeThemeButton theme={theme} setTheme={setTheme} />
-          </div>
+          </ul>
         </div>
       </motion.div>
     </header>
@@ -102,17 +78,24 @@ export default function StickyHeader({ home }) {
 }
 
 function NavBarLink({ children, home, path, ...rest }) {
-  if (home) {
-    return (
-      <Link href={`/#${path}`} {...rest} scroll={false}>
+  // if (home) {
+  //   return (
+  //     <Link href={`/#${path}`} {...rest} scroll={false}>
+  //       {children}
+  //     </Link>
+  //   );
+  // }
+  return (
+    <motion.li
+      className=" list-none"
+      // key={item.page}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+    >
+      <Link href={`/#${path}`} {...rest} scroll={!home}>
         {children}
       </Link>
-    );
-  }
-  return (
-    <Link href={`/#${path}`} {...rest}>
-      {children}
-    </Link>
+    </motion.li>
   );
 }
 
@@ -121,6 +104,7 @@ function ChangeThemeButton({ theme, setTheme }) {
     <>
       {theme === 'dark' ? (
         <button
+          title="set light theme"
           onClick={() => setTheme('light')}
           className="bg-slate-100 p-2 rounded-xl"
         >
@@ -128,6 +112,7 @@ function ChangeThemeButton({ theme, setTheme }) {
         </button>
       ) : (
         <button
+          title="set dark theme"
           onClick={() => setTheme('dark')}
           className="bg-[#0f1729] text-slate-100 p-2 rounded-xl"
         >

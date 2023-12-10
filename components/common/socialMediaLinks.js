@@ -12,6 +12,7 @@ function SocialMediaLinks({ classes }) {
         rel="noreferrer"
         target="_blank"
         className="bg-white p-2 text-[#0f1729] flex items-center gap-2 text-[1.35rem] rounded-full focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack"
+        aria-label="Mahdaoui abdessadeq medium account"
       >
         <AiOutlineMedium />
       </a>
@@ -20,6 +21,7 @@ function SocialMediaLinks({ classes }) {
         href={PROFILE_DATA.linkedIn}
         target="_blank"
         rel="noreferrer"
+        aria-label="Mahdaoui abdessadeq linkedin profile"
       >
         <BsLinkedin />
       </a>
@@ -28,6 +30,7 @@ function SocialMediaLinks({ classes }) {
         href={PROFILE_DATA.github}
         target="_blank"
         rel="noreferrer"
+        aria-label="Mahdaoui abdessadeq github profile"
       >
         <FaGithubSquare />
       </a>

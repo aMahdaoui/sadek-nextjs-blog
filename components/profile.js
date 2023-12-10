@@ -31,7 +31,7 @@ export default function Profile() {
           >
             <Image
               src="/images/headshot.png"
-              alt="Ricardo portrait"
+              alt="Sadek portrait"
               width="192"
               height="192"
               quality="95"
