@@ -1,7 +1,8 @@
 import React from 'react';
+import { m } from 'framer-motion';
+
 import { PROFILE_SKILLS } from '../config/global';
 import SectionHeading from './common/sectionHeading';
-import { motion } from 'framer-motion';
 import { useSectionInView } from '../hooks/useSectionInView';
 
 const fadeInAnimationVariants = {
@@ -28,7 +29,7 @@ function Skills() {
         <ul className="flex flex-wrap justify-center gap-2 text-lg text-gray-800">
           {PROFILE_SKILLS.map((item, index) => {
             return (
-              <motion.li
+              <m.li
                 key={index}
                 className="bg-white border border-blue-200 rounded-xl px-3 pb-1 dark:bg-white/10 dark:text-white/80"
                 variants={fadeInAnimationVariants}
@@ -40,7 +41,7 @@ function Skills() {
                 custom={index}
               >
                 {item.skill}
-              </motion.li>
+              </m.li>
             );
           })}
         </ul>

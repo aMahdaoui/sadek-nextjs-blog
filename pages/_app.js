@@ -5,12 +5,15 @@ import '../styles/prism-overrides.css';
 import { ThemeProvider } from 'next-themes';
 
 import ActiveSectionContextProvider from '../context/activeSectionContext';
+import { LazyMotion, domAnimation } from 'framer-motion';
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
+    <ThemeProvider enableSystem={false} attribute="class">
       <ActiveSectionContextProvider>
-        <Component {...pageProps} />
+        <LazyMotion features={domAnimation}>
+          <Component {...pageProps} />
+        </LazyMotion>
       </ActiveSectionContextProvider>
     </ThemeProvider>
   );

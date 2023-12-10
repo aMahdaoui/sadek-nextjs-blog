@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { m } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 import { RiMoonFill, RiSunLine } from 'react-icons/ri';
 import { clsx } from 'clsx';
+
 import { useActiveSectionContext } from '../context/activeSectionContext';
 
 const NAV_ITEMS = [
@@ -39,7 +40,7 @@ export default function StickyHeader({ home }) {
     useActiveSectionContext();
   return (
     <header className="flex justify-center ">
-      <motion.div // sm:w-[36rem] !w-fit
+      <m.div // sm:w-[36rem] !w-fit
         className="flex z-50 px-7 justify-between items-center fixed top-0  h-[5.5rem]  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem]  sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -72,7 +73,7 @@ export default function StickyHeader({ home }) {
             <ChangeThemeButton theme={theme} setTheme={setTheme} />
           </ul>
         </div>
-      </motion.div>
+      </m.div>
     </header>
   );
 }
@@ -86,7 +87,7 @@ function NavBarLink({ children, home, path, ...rest }) {
   //   );
   // }
   return (
-    <motion.li
+    <m.li
       className=" list-none"
       // key={item.page}
       initial={{ y: -100, opacity: 0 }}
@@ -95,7 +96,7 @@ function NavBarLink({ children, home, path, ...rest }) {
       <Link href={`/#${path}`} {...rest} scroll={!home}>
         {children}
       </Link>
-    </motion.li>
+    </m.li>
   );
 }
 
