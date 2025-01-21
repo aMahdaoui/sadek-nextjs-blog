@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 import { HiArrowDown, HiDownload } from 'react-icons/hi';
 
@@ -21,7 +21,7 @@ export default function Profile() {
     >
       <div className="flex flex-col items-center justify-center">
         <div className="relative">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -31,15 +31,15 @@ export default function Profile() {
           >
             <Image
               src="/images/headshot.png"
-              alt="Ricardo portrait"
+              alt="Sadek portrait"
               width="192"
               height="192"
               quality="95"
               priority={true}
-              className="h-24 w-24 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
+              className="h-36 w-36 rounded-full object-cover border-[0.35rem] border-white shadow-xl"
             />
-          </motion.div>
-          <motion.span
+          </m.div>
+          <m.span
             className="absolute bottom-0 right-0 text-4xl"
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -51,10 +51,10 @@ export default function Profile() {
             }}
           >
             👋
-          </motion.span>
+          </m.span>
         </div>
 
-        <motion.div
+        <m.div
           className="flex flex-col gap-3 md:mt-2 mb-10  "
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,10 +68,10 @@ export default function Profile() {
           <span className="text-lg md:text-xl pt-4 px-12">
             {PROFILE_DATA.shortDescription}
           </span>
-        </motion.div>
+        </m.div>
       </div>
 
-      <motion.div
+      <m.div
         className="flex flex-col sm:flex-row items-center justify-center gap-2 px-4 text-lg font-medium"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -80,7 +80,7 @@ export default function Profile() {
         }}
       >
         <ProfileLinks />
-      </motion.div>
+      </m.div>
       <BouncedRow />
     </section>
   );
