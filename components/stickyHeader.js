@@ -22,7 +22,7 @@ const NAV_ITEMS = [
     page: 'skills',
   },
   {
-    label: 'Articles',
+    label: 'Posts',
     page: 'blog',
   },
   {
@@ -41,7 +41,7 @@ export default function StickyHeader({ home }) {
   return (
     <header className="flex justify-center ">
       <m.div // sm:w-[36rem] !w-fit
-        className="flex z-50 px-7 justify-between items-center fixed top-0  h-[5.5rem]  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem]  sm:rounded-full dark:bg-gray-950 dark:border-black/40 dark:bg-opacity-75"
+        className="flex z-50 px-7 justify-between items-center fixed top-0  h-[5.5rem]  rounded-none border border-white border-opacity-40 bg-white bg-opacity-80 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] sm:top-6 sm:h-[3.25rem]  sm:rounded-full dark:bg-[#293554] dark:border-black/40 dark:bg-opacity-75"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >

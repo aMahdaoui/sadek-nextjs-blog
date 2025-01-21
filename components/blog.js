@@ -6,7 +6,7 @@ import { useSectionInView } from '../hooks/useSectionInView';
 import SectionHeading from './common/sectionHeading';
 
 export default function Blog({ postsData }) {
-  const { ref } = useSectionInView('Articles');
+  const { ref } = useSectionInView('Posts');
 
   return (
     <section id="blog" ref={ref} className="scroll-mt-[6rem]">
