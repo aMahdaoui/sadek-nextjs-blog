@@ -1,9 +1,14 @@
+import { useRouter } from 'next/router';
 import { createContext, useContext, useState } from 'react';
 
 export const ActiveSectionContext = createContext(null);
 
 export default function ActiveSectionContextProvider({ children }) {
-  const [activeSection, setActiveSection] = useState('Home');
+  const router = useRouter();
+  
+  const isBlogRoute = router.pathname.includes('posts');
+  
+  const [activeSection, setActiveSection] = useState(isBlogRoute ? 'Posts' : 'Home');
   // const [timeOfLastClick, setTimeOfLastClick] = useState(0); // we need to keep track of this to disable the observer temporarily when user clicks on a link
 
   return (

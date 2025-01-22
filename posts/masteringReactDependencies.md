@@ -108,7 +108,7 @@ Ensure the lock file is not included in .gitignore so that it’s tracked in you
 
 ## Best Practices and Practical Considerations
 
--   Check the health of third-party packages: Before integrating a package into your project, verify its credibility and the frequency of updates using tools like [Snyk Advisor](https://snyk.io/advisor/).
+-   **Check the health of third-party packages**: Before integrating a package into your project, verify its credibility and the frequency of updates using tools like [Snyk Advisor](https://snyk.io/advisor/).
 
 *   **Use exact versions**: Whenever possible, prefer adding packages with the exact version, to ensure build consistency across all environments.
     ```batch
