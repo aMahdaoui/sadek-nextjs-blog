@@ -2,16 +2,17 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { useActiveSectionContext } from '../context/activeSectionContext';
+import { revealThresholdsByScreen } from './helpers';
 
 export function useSectionInView(sectionName, threshold = 0.75) {
-  let thresholdByScreen = threshold;
-  if (typeof window !== 'undefined' && window.innerWidth <= 700)
-    thresholdByScreen = 0.3;
+  
+  const { setActiveSection } = useActiveSectionContext();
+
+  const thresholdByScreen = revealThresholdsByScreen(threshold);
 
   const { ref, inView } = useInView({
     threshold: thresholdByScreen,
   });
-  const { setActiveSection } = useActiveSectionContext();
 
   useEffect(() => {
     if (inView) {
@@ -19,7 +20,5 @@ export function useSectionInView(sectionName, threshold = 0.75) {
     }
   }, [inView, setActiveSection, sectionName]);
 
-  return {
-    ref,
-  };
+  return { ref };
 }

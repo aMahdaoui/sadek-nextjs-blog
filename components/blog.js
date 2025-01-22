@@ -18,12 +18,12 @@ export default function Blog({ postsData }) {
               <SlideUp offset="-300px 0px -300px 0px">
                 <div className=" animate-slideUpCubiBezier animation-delay-2">
                   <Link
-                    className="cursor-pointer text-2xl font-semibold mt-6 md:my-0 md:text-3xl"
+                    className="cursor-pointer text-2xl font-semibold mt-6 md:my-0"
                     href={`/posts/${id}`}
                   >
-                    <h2 className="dark:text-teal-200 text-2xl font-semibold mt-6 md:my-0 md:text-3xl">
+                    <span className="dark:text-teal-200 text-2xl font-semibold mt-6 md:my-0">
                       {title}
-                    </h2>
+                    </span>
                   </Link>
                   <small className="dark:text-teal-600 mb-2.5 block">
                     <Date dateString={date} />
